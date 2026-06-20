@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hrishikesh Baidya — Software Engineer with 6+ years building AI-driven, event-driven systems: multi-agent RAG pipelines, Temporal.io workflows, and fluid product UIs." />
+  <title>Hrishikesh Baidya — Software Engineer</title>
+
+  <!-- Favicon (HB monogram) -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hrishikesh Baidya — Software Engineer" />
+  <meta property="og:description" content="6+ years building AI-driven, event-driven systems and fluid product UIs." />
+  <meta property="og:url" content="https://hrishikeshbaidya.in/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts: geometric display sans + clean sans + mono accent -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Mark JS available before paint so intro elements can hide cleanly (graceful no-JS fallback) -->
+  <script>document.documentElement.className += " has-js";</script>
+
+  <!-- Set theme before paint to avoid a flash of the wrong palette -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var sysDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = saved || (sysDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- Generative particle/constellation background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <!-- Grain / texture overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Hrishikesh Baidya — home">
+        <!-- Animated HB monogram (strokes draw on load) -->
+        <svg class="brand-mark" viewBox="0 0 48 48" width="36" height="36" aria-hidden="true">
+          <rect class="hb-box" x="1.5" y="1.5" width="45" height="45" rx="12" />
+          <g class="hb-glyph" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 13 V35" />
+            <path d="M24 13 V35" />
+            <path d="M14 24 H24" />
+            <path d="M24 13 H30 A5.5 5.5 0 0 1 30 24 H24" />
+            <path d="M24 24 H30 A5.5 5.5 0 0 1 30 35 H24" />
+          </g>
+        </svg>
+        <span class="brand-name">Hrishikesh Baidya</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Experience</a>
+        <a href="#projects">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 14.2A8.2 8.2 0 1 1 9.8 3.5a6.4 6.4 0 0 0 10.7 10.7z" />
+        </svg>
+      </button>
+
+      <a href="mailto:hrishikeshbaidya7@gmail.com" class="btn btn-ghost nav-cta">Get in touch</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="#about">About</a>
+      <a href="#work">Experience</a>
+      <a href="#projects">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:hrishikeshbaidya7@gmail.com" class="btn btn-solid">Get in touch</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero container" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <p class="eyebrow"><span class="dot"></span> Available for select work</p>
+
+      <h1 class="hero-title" aria-label="Software engineer crafting AI-driven, event-driven systems and fluid product UIs.">
+        <span class="hw"><span>Software</span></span>
+        <span class="hw"><span>engineer</span></span>
+        <span class="hw"><span>crafting</span></span>
+        <span class="hw"><span class="accent">AI-driven,</span></span>
+        <span class="hw"><span class="accent">event-driven</span></span>
+        <span class="hw"><span>systems</span></span>
+        <span class="hw"><span>&amp;</span></span>
+        <span class="hw"><span>fluid</span></span>
+        <span class="hw"><span>product</span></span>
+        <span class="hw"><span class="accent">UIs.</span></span>
+      </h1>
+
+      <p class="hero-sub">
+        I'm Hrishikesh — 6+ years turning complex backends into calm, reliable products:
+        multi-agent RAG pipelines, Temporal.io workflows, and viewport-proportional interfaces.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-solid">View selected work</a>
+        <a href="https://hrishikeshbaidya.in" target="_blank" rel="noopener" class="btn btn-ghost">hrishikeshbaidya.in ↗</a>
+      </div>
+
+      <div class="hero-social">
+        <a href="https://github.com/hrishi7" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">·</span>
+        <a href="https://www.linkedin.com/in/hrishikesh-baidya/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">·</span>
+        <a href="mailto:hrishikeshbaidya7@gmail.com">Email</a>
+      </div>
+
+      <ul class="hero-meta">
+        <li><span class="num" data-count="6" data-suffix="+">0</span><span class="lbl">Years building</span></li>
+        <li><span class="num" data-count="10" data-suffix="K+">0</span><span class="lbl">Daily bookings handled</span></li>
+        <li><span class="num" data-count="90" data-suffix="%">0</span><span class="lbl">Faster content generation</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section container" id="about">
+      <div class="section-head">
+        <span class="section-index">01</span>
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="about-grid">
+        <p class="lead reveal">
+          I build systems that stay calm under load. Most of my work lives at the seam
+          between AI and infrastructure — designing retrieval pipelines, asynchronous
+          ingestion engines, and event-driven backends that hold up at scale.
+        </p>
+        <p class="reveal">
+          Lately that means multi-agent Retrieval-Augmented Generation for medical content,
+          backed by MongoDB Atlas Vector Search and BullMQ. Before that, Temporal.io
+          workflows processing 10K+ daily bookings and canvas engines rendering thousands
+          of interactive spatial elements. I care equally about the backend that doesn't
+          flinch and the interface that feels effortless.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section class="section container" id="work">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="role reveal">
+          <div class="role-meta">
+            <span class="role-period">Feb 2026 — Present</span>
+            <span class="role-place">Remote · Frankfurt, DE</span>
+          </div>
+          <div class="role-body">
+            <h3>Senior Software Engineer <span class="at">·</span>
+              <a class="company" href="https://lingo.care/" target="_blank" rel="noopener">Lingocare</a></h3>
+            <p>Leading AI content infrastructure for medical education — a multi-agent RAG
+              pipeline and retrieval workbench that lets educators generate compliant,
+              context-accurate clinical assessments in a fraction of the time.</p>
+            <ul class="role-tags">
+              <li>Multi-agent RAG</li><li>Atlas Vector Search</li><li>BullMQ</li><li>AWS · Docker · CI/CD</li><li>Next.js · MUI</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role reveal">
+          <div class="role-meta">
+            <span class="role-period">Apr 2022 — Feb 2026</span>
+            <span class="role-place">Remote · Bangalore, IN</span>
+          </div>
+          <div class="role-body">
+            <h3>SDE II <span class="at">·</span>
+              <a class="company" href="https://vizmo.in/" target="_blank" rel="noopener">Vizmo</a></h3>
+            <p>Built the backbone of an enterprise workspace platform — event-driven booking
+              on Temporal.io, a real-time canvas floor engine, and a multi-tenant registry
+              serving hundreds of enterprise locations.</p>
+            <ul class="role-tags">
+              <li>Temporal.io</li><li>Konva.js</li><li>Casbin RBAC</li><li>Zod</li><li>Event-driven</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Selected Work / Case Studies ===== -->
+    <section class="section container work-section" id="projects">
+      <div class="work-bg" aria-hidden="true"></div>
+      <div class="section-head">
+        <span class="section-index">03</span>
+        <h2 class="section-title">Selected Work</h2>
+      </div>
+
+      <div class="case-grid">
+        <!-- Featured -->
+        <article class="case featured reveal">
+          <div class="case-top">
+            <span class="case-co">Lingocare</span>
+            <span class="case-metric">90% faster · GDPR-compliant</span>
+          </div>
+          <h3 class="case-title">Multi-agent RAG content pipeline</h3>
+          <p class="case-desc">
+            <span class="case-problem">Authoring clinical learning content was slow and bound by strict GDPR &amp; curriculum rules.</span>
+            I engineered a multi-agent Retrieval-Augmented Generation pipeline fed by a high-throughput,
+            asynchronous ingestion engine that classifies dense nursing texts over MongoDB Atlas Vector Search —
+            running on AWS EC2 + Docker with automated CI/CD for high availability.
+          </p>
+          <ul class="tags">
+            <li>Node.js</li><li>BullMQ</li><li>Atlas Vector Search</li><li>Multi-Agent LLMs</li><li>AWS EC2</li><li>Docker</li><li>CI/CD</li>
+          </ul>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-co">Lingocare</span>
+            <span class="case-metric">Instant assessments</span>
+          </div>
+          <h3 class="case-title">3-layer retrieval workbench</h3>
+          <p class="case-desc">
+            <span class="case-problem">Educators needed contextually accurate clinical assessments on demand.</span>
+            A responsive 3-layer retrieval workbench with fluid, viewport-proportional layouts that
+            adapt to any screen and keep the retrieval flow legible.
+          </p>
+          <ul class="tags"><li>Next.js</li><li>React</li><li>MUI</li><li>Viewport-proportional UI</li></ul>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-co">Vizmo</span>
+            <span class="case-metric">10K+ daily · −85% manual</span>
+          </div>
+          <h3 class="case-title">Event-driven room-booking system</h3>
+          <p class="case-desc">
+            <span class="case-problem">Manual room operations couldn't scale across enterprise sites.</span>
+            Architected a highly scalable, event-driven booking system on Temporal.io workflows —
+            processing 10K+ daily bookings and cutting manual intervention by 85%.
+          </p>
+          <ul class="tags"><li>Temporal.io</li><li>Node.js</li><li>Event-Driven Architecture</li></ul>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-co">Vizmo</span>
+            <span class="case-metric">1000+ live elements</span>
+          </div>
+          <h3 class="case-title">Canvas floor-visualization engine</h3>
+          <p class="case-desc">
+            <span class="case-problem">Spaces needed a live, interactive floor view that stayed in sync.</span>
+            A sophisticated canvas engine in Konva.js rendering 1000+ interactive spatial elements
+            with real-time resource synchronization and coordinate transforms.
+          </p>
+          <ul class="tags"><li>Konva.js</li><li>React</li><li>Canvas</li><li>Real-time sync</li></ul>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-co">Vizmo</span>
+            <span class="case-metric">500+ locations</span>
+          </div>
+          <h3 class="case-title">Multi-tenant registry &amp; form builder</h3>
+          <p class="case-desc">
+            <span class="case-problem">500+ enterprise locations needed configurable, compliant registration.</span>
+            A dynamic multi-tenant digital registry and form builder with Casbin RBAC, strict Zod
+            schema validation, and configurable compliance workflows.
+          </p>
+          <ul class="tags"><li>Casbin RBAC</li><li>Zod</li><li>Multi-tenant</li><li>Form builder</li></ul>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-co">Personal · Live</span>
+            <span class="case-metric">On Google Play</span>
+          </div>
+          <h3 class="case-title">Talkdrill — AI language-learning app</h3>
+          <p class="case-desc">
+            <span class="case-problem">Shipping an AI-powered language tutor to real-world users, end to end.</span>
+            Built the complete infrastructure with Node.js, Express, MongoDB &amp; React Native, and
+            integrated OpenAI conversational agents with real-time video calls, live chat, and
+            event-driven push notifications.
+          </p>
+          <ul class="tags"><li>Node.js</li><li>Express</li><li>MongoDB</li><li>React Native</li><li>OpenAI</li></ul>
+          <div class="case-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.talkdrill.learner" target="_blank" rel="noopener" class="link-arrow">Download on Play Store ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section container" id="skills">
+      <div class="section-head">
+        <span class="section-index">04</span>
+        <h2 class="section-title">Skills &amp; Tooling</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h4>Languages &amp; Frameworks</h4>
+          <ul class="tags">
+            <li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express.js</li><li>React</li><li>Next.js</li><li>Vue</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal">
+          <h4>AI &amp; Data</h4>
+          <ul class="tags">
+            <li>Generative AI</li><li>RAG Pipelines</li><li>Multi-Agent LLMs</li><li>Vector DBs (Atlas)</li><li>PostgreSQL</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal">
+          <h4>Architecture &amp; Infrastructure</h4>
+          <ul class="tags">
+            <li>Event-Driven Architecture</li><li>AWS EC2</li><li>Docker</li><li>CI/CD</li><li>Temporal.io</li><li>BullMQ</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal">
+          <h4>UI &amp; Tooling</h4>
+          <ul class="tags">
+            <li>MUI</li><li>Tailwind</li><li>Figma</li><li>Jest</li><li>Redux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Education ===== -->
+    <section class="section container" id="education">
+      <div class="section-head">
+        <span class="section-index">05</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="edu reveal">
+        <div class="edu-meta"><span>2017 — 2020</span><span>Lateral Entry</span></div>
+        <div class="edu-body">
+          <h3>B.Tech, Computer Science &amp; Engineering</h3>
+          <p>Calcutta Institute of Engineering &amp; Management</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section container contact" id="contact">
+      <div class="contact-bg" aria-hidden="true"></div>
+      <div class="section-head">
+        <span class="section-index">06</span>
+        <h2 class="section-title">Get in touch</h2>
+      </div>
+      <p class="contact-lead reveal">
+        Have something interesting to build? I'm open to select engineering work
+        and collaborations.
+      </p>
+      <a href="mailto:hrishikeshbaidya7@gmail.com" class="contact-mail reveal">hrishikeshbaidya7@gmail.com</a>
+
+      <ul class="contact-links reveal">
+        <li><a href="https://hrishikeshbaidya.in" target="_blank" rel="noopener">Portfolio ↗</a></li>
+        <li><a href="https://github.com/hrishi7" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/hrishikesh-baidya/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="tel:+918442979928">+91 84429 79928</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Hrishikesh Baidya · Built with care &amp; anime.js</span>
+      <a href="#top" class="back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- anime.js (UMD global `anime`) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
