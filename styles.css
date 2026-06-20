@@ -143,6 +143,8 @@ main { position: relative; z-index: 2; }
 .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -12px rgba(94,234,212,0.6); }
 .btn-ghost { background: var(--tint-02); color: var(--ink); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); box-shadow: 0 0 0 1px var(--accent-line); }
+.btn-download svg { transition: transform 0.25s var(--ease); }
+.btn-download:hover svg { transform: translateY(2px); }
 
 /* ---------- Header ---------- */
 .site-header {
